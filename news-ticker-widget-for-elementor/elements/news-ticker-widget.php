@@ -6,7 +6,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		return 'elementor-news-ticker';
 	}
 	public function get_title() { 		//Function for get the name of the element.
-		return __( 'News Ticker', ELEMENTORNEWTICKER_DOMAIN );
+		return __( 'News Ticker', 'elementor-news-ticker' );
 	}	
 	public function get_icon() { 		//Function for get the icon of the element.
 		return ' eicon-form-vertical';
@@ -33,7 +33,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' => __( 'General Settings', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'General Settings', 'elementor-news-ticker' ),
 			]
 		);		
 		$post_types1 = $this->newticker_get_post_types();		
@@ -41,7 +41,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
             'post_type',
             [
-                'label' => __('Source', ELEMENTORNEWTICKER_DOMAIN),
+                'label' => __('Source', 'elementor-news-ticker'),
                 'type' => Controls_Manager::SELECT,
                 'options' => $post_types1,
                 'default' => key($post_types1),
@@ -75,27 +75,27 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'no_of_post',
 			[
-				'label' => __( 'Post Number', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Post Number', 'elementor-news-ticker' ),
 				'type' => Controls_Manager::NUMBER,
-				'default' => __( '6', ELEMENTORNEWTICKER_DOMAIN )
+				'default' => __( '6', 'elementor-news-ticker' )
 			]
 		);
 		$this->add_control(
 			'label',
 			[
-				'label' => __( 'Show label', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Show label', 'elementor-news-ticker' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_off' => __( 'Off', ELEMENTORNEWTICKER_DOMAIN ),
-				'label_on' => __( 'On', ELEMENTORNEWTICKER_DOMAIN ),
+				'label_off' => __( 'Off', 'elementor-news-ticker' ),
+				'label_on' => __( 'On', 'elementor-news-ticker' ),
 				'default' => 'yes',
 			]
 		);
 		$this->add_control(
 			'label_heading',			[
-				'label' => __( 'Label', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Label', 'elementor-news-ticker' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => __( 'Latest News', ELEMENTORNEWTICKER_DOMAIN),
-				'placeholder' => __( 'Latest News', ELEMENTORNEWTICKER_DOMAIN ),
+				'default' => __( 'Latest News', 'elementor-news-ticker'),
+				'placeholder' => __( 'Latest News', 'elementor-news-ticker' ),
 				'condition' => [
 					'label' => 'yes',
 				],
@@ -104,7 +104,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		 $this->add_control(
             'label_icon',
 			[
-				'label' => __('Icon', ELEMENTORNEWTICKER_DOMAIN),
+				'label' => __('Icon', 'elementor-news-ticker'),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 				'default' => [
@@ -117,19 +117,19 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'sep_content',
 			[
-				'label' => __( 'Separator', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Separator', 'elementor-news-ticker' ),
 			]
 		);
 		$this->add_control(
 			'sep_type',
 			[
-				'label' => __( 'Separator Type', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Separator Type', 'elementor-news-ticker' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'icon' => __( 'Icon', ELEMENTORNEWTICKER_DOMAIN ),
-					'text' => __( 'Text', ELEMENTORNEWTICKER_DOMAIN ),
-					'fimage' => __( 'Feature Image', ELEMENTORNEWTICKER_DOMAIN ),
-					'pdate' => __( 'Date', ELEMENTORNEWTICKER_DOMAIN ),
+					'icon' => __( 'Icon', 'elementor-news-ticker' ),
+					'text' => __( 'Text', 'elementor-news-ticker' ),
+					'fimage' => __( 'Feature Image', 'elementor-news-ticker' ),
+					'pdate' => __( 'Date', 'elementor-news-ticker' ),
 					
 				],
 				'default' => 'icon',
@@ -138,7 +138,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(//Add control to select an icon for button1.
             'sep_icon',
 			[
-				'label' => __('Icon', ELEMENTORNEWTICKER_DOMAIN),
+				'label' => __('Icon', 'elementor-news-ticker'),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 				'default' => [
@@ -150,10 +150,10 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'sep_text',
 			[
-				'label' => __( 'Text', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Text', 'elementor-news-ticker' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => __( '|', ELEMENTORNEWTICKER_DOMAIN),
-				'placeholder' => __( 'Text', ELEMENTORNEWTICKER_DOMAIN ),
+				'default' => __( '|', 'elementor-news-ticker'),
+				'placeholder' => __( 'Text', 'elementor-news-ticker' ),
 				'condition' => [
 					'sep_type' => 'text',
 				],
@@ -163,25 +163,25 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'animation_style',
 			[
-				'label' => __('Animation', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __('Animation', 'elementor-news-ticker' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
         $this->add_control(
 			'animation_speed',
 			[
-				'label' => __( 'Animation Speed', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Animation Speed', 'elementor-news-ticker' ),
 				'type' => Controls_Manager::NUMBER,
 				'dynamic' => [
 					'active' => true,
 				],
-				'default' => __( '50', ELEMENTORNEWTICKER_DOMAIN),	
+				'default' => __( '50', 'elementor-news-ticker'),	
 			]
 		);
 		  $this->add_control(
 			'nt_background_color',
 			[
-				'label' => __( 'Background Color', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Background Color', 'elementor-news-ticker' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_ACCENT,
@@ -196,7 +196,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'label_style',
 			[
-				'label' => __( 'Label', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Label', 'elementor-news-ticker' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'label' => 'yes',
@@ -206,7 +206,7 @@ class Elementor_NT_Widget extends Widget_Base {
         $this->add_control(
 			'label_icon_indent',
 			[
-				'label' => __( 'Icon Spacing', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Icon Spacing', 'elementor-news-ticker' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -221,7 +221,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'label_color',
 			[
-				'label' => __( 'Label Color', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Label Color', 'elementor-news-ticker' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_PRIMARY,
@@ -235,7 +235,7 @@ class Elementor_NT_Widget extends Widget_Base {
         $this->add_control(
 			'label_background_color',
 			[
-				'label' => __( 'Background Color', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Background Color', 'elementor-news-ticker' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_ACCENT,
@@ -260,13 +260,13 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'title_style',
 			[
-				'label' => __( 'Title', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Title', 'elementor-news-ticker' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_responsive_control('title_padding',
                 [
-                    'label'         => esc_html__('Padding', ELEMENTORNEWTICKER_DOMAIN),
+                    'label'         => esc_html__('Padding', 'elementor-news-ticker'),
                     'type'          => Controls_Manager::DIMENSIONS,
                     'size_units'    => [ 'px', 'em', '%' ],
                     'default'       => [
@@ -285,7 +285,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label' => __( 'Title Color', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Title Color', 'elementor-news-ticker' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_PRIMARY,
@@ -311,7 +311,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'icon_style',
 			[
-				'label' => __( 'Icon Separator', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Icon Separator', 'elementor-news-ticker' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'sep_type' => 'icon',
@@ -321,7 +321,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'icon_color',
 			[
-				'label' => __( 'Icon Color', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Icon Color', 'elementor-news-ticker' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_PRIMARY,
@@ -335,7 +335,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'icon_size',
 			[
-				'label' => __( 'Icon Size', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Icon Size', 'elementor-news-ticker' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -351,7 +351,7 @@ class Elementor_NT_Widget extends Widget_Base {
         $this->start_controls_section(
 			'sep_text_style',
 			[
-				'label' => __( 'Text Separator', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Text Separator', 'elementor-news-ticker' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'sep_type' => 'text',
@@ -361,7 +361,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'sep_text_color',
 			[
-				'label' => __( 'Text Color', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Text Color', 'elementor-news-ticker' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_PRIMARY,
@@ -375,7 +375,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'sep_text_bg_color',
 			[
-				'label' => __( 'Background Color', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Background Color', 'elementor-news-ticker' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_ACCENT,
@@ -401,7 +401,7 @@ class Elementor_NT_Widget extends Widget_Base {
         $this->start_controls_section(
 			'sep_date_style',
 			[
-				'label' => __( 'Date Separator', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Date Separator', 'elementor-news-ticker' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'sep_type' => 'pdate',
@@ -411,7 +411,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'sep_date_color',
 			[
-				'label' => __( 'Color', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Color', 'elementor-news-ticker' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_PRIMARY,
@@ -425,7 +425,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'sep_date_bg_color',
 			[
-				'label' => __( 'Background Color', ELEMENTORNEWTICKER_DOMAIN ),
+				'label' => __( 'Background Color', 'elementor-news-ticker' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_ACCENT,
@@ -516,26 +516,28 @@ class Elementor_NT_Widget extends Widget_Base {
 							   <?php Icons_Manager::render_icon( $settings['label_icon'], [ 'aria-hidden' => 'true' ] ); ?>                     
 						<?php endif; ?>
 					</span>	
-				   <?php echo $settings['label_heading'] ?>
+				   <?php echo esc_html($settings['label_heading']); ?>
 				</div>
 	        <?php } ?> 
-			<div class="fd-elementor-news-ticker" id="fd-ticker-<?php echo $this->get_id(); ?>" data-speed="<?php echo $settings['animation_speed'];?>">
+			<div class="fd-elementor-news-ticker" id="fd-ticker-<?php echo esc_attr($this->get_id()); ?>" data-speed="<?php echo esc_attr($settings['animation_speed']); ?>">
 			<?php
 				foreach( $myposts as $post ) : 
 				//setup_postdata($post);  
 				   if($settings['sep_type']=='fimage') { ?>
-				        <span class="news-item-<?php echo $this->get_id();?> feature-image"> <?php echo the_post_thumbnail( array( 35,35 ) ); ?></span>
+				        <span class="news-item-<?php echo esc_attr($this->get_id()); ?> feature-image"> <?php if (has_post_thumbnail()) {
+                                echo get_the_post_thumbnail($post->ID, [35, 35]);
+                                } ?></span>
 				   <?php } ?>
-					<a  class="top-heading news-item-<?php echo $this->get_id(); ?>" href="<?php echo get_permalink(); ?>"> <?php echo get_the_title(); ?></a>
+					<a  class="top-heading news-item-<?php echo esc_attr($this->get_id()); ?>" href="<?php echo esc_url(get_permalink()); ?>"> <?php echo esc_html(get_the_title()); ?></a>
 		            <?php if (!empty ( $settings['sep_icon'] ) && $settings['sep_type']=='icon') {  ?>
-						<span class="news-item-<?php echo $this->get_id(); ?> sep_icon">
+						<span class="news-item-<?php echo esc_attr($this->get_id()); ?> sep_icon">
 						 <?php Icons_Manager::render_icon( $settings['sep_icon'], [ 'aria-hidden' => 'true' ]);   ?>	
 						</span>                      	
 					<?php } if(!empty ( $settings['sep_text'] ) && $settings['sep_type']=='text'){ ?>
-						<span class="news-item-<?php echo $this->get_id(); ?> sep_text"><?php echo $settings['sep_text'] ; ?></span>
+						<span class="news-item-<?php echo esc_attr($this->get_id()); ?> sep_text"><?php echo esc_html($settings['sep_text']) ; ?></span>
 				    <?php 
 				    }  if ($settings['sep_type']=='pdate') { ?>
-					<span class="news-item-<?php echo $this->get_id(); ?> sep_date"><?php echo get_the_date(); ?></span>
+					<span class="news-item-<?php echo esc_attr($this->get_id()); ?> sep_date"><?php echo esc_html(get_the_date()); ?></span>
 					<?php	
 					}
 				  endforeach; wp_reset_postdata(); ?>
@@ -544,10 +546,10 @@ class Elementor_NT_Widget extends Widget_Base {
         <?php } ?>
 		<script>
 			jQuery(document).ready(function($) {
-				jQuery("#fd-ticker-<?php echo $this->get_id(); ?>").ticker({
-					speed:<?php echo $settings['animation_speed'];?>,
+				jQuery("#fd-ticker-<?php echo esc_attr($this->get_id()); ?>").ticker({
+					speed:<?php echo esc_attr($settings['animation_speed']);?>,
 					pauseOnHover:!0,
-					item:".news-item-<?php echo $this->get_id(); ?>"
+					item:".news-item-<?php echo esc_attr($this->get_id()); ?>"
 				}).data("ticker");
 			}); 
 		</script>
