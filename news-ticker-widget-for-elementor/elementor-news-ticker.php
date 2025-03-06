@@ -3,8 +3,8 @@
  * Plugin Name: News Ticker Widget for Elementor
  * Plugin URI: https://flickdevs.com/elementor/
  * description: It showcases your most recent posts in a ticker style.
- * Version: 1.3.3
- * Elementor tested up to: 3.26.3
+ * Version: 1.3.4
+ * Elementor tested up to: 3.27.6
  * Author: FlickDevs
  * Author URI: https://flickdevs.com
  * Text Domain: elementor-news-ticker

@@ -2,9 +2,9 @@
 Contributors: flickdevs, shaikhaezaz80, jpkaushik
 Tags: marquee, News Headlines, news ticker, elementor news ticker, post rotator, post ticker, blog ticker, elementor addon widget
 Requires at least: 5.9
-Tested up to: 6.7.1
+Tested up to: 6.7.2
 Requires PHP: 7.0
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,10 @@ How to install the plugin and get it working.
 
 
 == Changelog ==
+
+= 1.3.4 =
+* Compatibility with latest Elementor plugin
+* Minor fixes
 
 = 1.3.3 =
 * Compatibility with latest Elementor plugin and Fixed fatal error

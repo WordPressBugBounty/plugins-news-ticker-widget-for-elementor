@@ -145,6 +145,9 @@ class Elementor_NT_Widget extends Widget_Base {
 					'value' => 'fa fa-circle',
 					'library' => 'fa-solid',
 				],
+				'condition' => [
+					'sep_type' => 'icon',
+				],
             ]
         );
 		$this->add_control(
@@ -214,7 +217,7 @@ class Elementor_NT_Widget extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .news-ticker-label i' => 'padding-right: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .news-ticker-label .news-ticker-icon' => 'margin-right: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -229,6 +232,7 @@ class Elementor_NT_Widget extends Widget_Base {
 				'default' => '#fff',
 				'selectors' => [
 					'{{WRAPPER}} .news-ticker-label' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .news-ticker-label .news-ticker-icon' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -328,7 +332,7 @@ class Elementor_NT_Widget extends Widget_Base {
 				],
 				'selectors' => [
 					// Stronger selector to avoid section style from overwriting
-					'{{WRAPPER}} .fd-elementor-news-ticker i' => 'color: {{VALUE}};',
+					'{{WRAPPER}} .fd-elementor-news-ticker .sep_icon svg' => 'fill: {{VALUE}};',
 				],
 			]
 		);
@@ -343,7 +347,7 @@ class Elementor_NT_Widget extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .fd-elementor-news-ticker i' => 'font-size: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .fd-elementor-news-ticker .sep_icon svg' => 'width: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
