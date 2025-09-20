@@ -3,14 +3,16 @@
  * Plugin Name: News Ticker Widget for Elementor
  * Plugin URI: https://flickdevs.com/elementor/
  * description: It showcases your most recent posts in a ticker style.
- * Version: 1.3.5
- * Elementor tested up to: 3.29.2
+ * Version: 1.3.6
+ * Elementor tested up to: 3.32.2
  * Author: FlickDevs
  * Author URI: https://flickdevs.com
- * Text Domain: elementor-news-ticker
+ * Text Domain: news-ticker-widget-for-elementor
+ * License: GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 
-if (!defined('ABSPATH'))
+if (!defined('ABSPATH')) 
     exit; // Exit if accessed directly
 define('ELMENTOR_NT_WIDGET_URL', plugins_url('/', __FILE__));  // Define Plugin URL 
 define('ELMENTOR_NT_WIDGET_PATH', plugin_dir_path(__FILE__));  // Define Plugin Directory Path
@@ -31,8 +33,8 @@ function add_elementor_nt_widget() {
 }
 
 function ele_news_ticker_style() {
-    wp_enqueue_style('fd-nt-style', ELMENTOR_NT_WIDGET_URL.'assets/css/ele-news-ticker.css', true);
-	wp_enqueue_style('ticker-style', ELMENTOR_NT_WIDGET_URL.'assets/css/ticker.css', true);
+    wp_enqueue_style('fd-nt-style', ELMENTOR_NT_WIDGET_URL.'assets/css/ele-news-ticker.css', array(), '1.0.0');
+	wp_enqueue_style('ticker-style', ELMENTOR_NT_WIDGET_URL.'assets/css/ticker.css', array(), '1.0.0');
 	wp_enqueue_script('ticker-script',ELMENTOR_NT_WIDGET_URL.'assets/js/ticker.js', array('jquery'),'1.0', true);
 
 	// in JavaScript, object properties are accessed as ajax_object.ajax_url, ajax_object.we_value
@@ -45,7 +47,7 @@ function ele_news_ticker_style() {
  *   Check the elementor current version.
  */
 function fd_nt_elementor_load_plugin() {
-    load_plugin_textdomain('elementor-news-ticker');
+   // load_plugin_textdomain('elementor-news-ticker');
     if (!did_action('elementor/loaded')) {
         add_action('admin_notices', 'fd_nt_elementor_widgets_fail_load');
         return;
@@ -68,15 +70,15 @@ function fd_nt_elementor_widgets_fail_load() {
             return;
         }
         $activation_url = wp_nonce_url('plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin);
-        $message = '<p>' . __('Elementor News Ticker not working because you need to activate the Elementor plugin.', 'elementor-news-ticker') . '</p>';
-        $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $activation_url, __('Activate Elementor Now', 'elementor-news-ticker')) . '</p>';
+        $message = '<p>' . __('Elementor News Ticker not working because you need to activate the Elementor plugin.', 'news-ticker-widget-for-elementor') . '</p>';
+        $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $activation_url, __('Activate Elementor Now', 'news-ticker-widget-for-elementor')) . '</p>';
     } else {
         if (!current_user_can('install_plugins')) {
             return;
         }
         $install_url = wp_nonce_url(self_admin_url('update.php?action=install-plugin&plugin=elementor'), 'install-plugin_elementor');
-        $message = '<p>' . __('Elementor News Ticker not working because you need to install the Elemenor plugin', 'elementor-news-ticker') . '</p>';
-        $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $install_url, __('Install Elementor Now', 'elementor-news-ticker')) . '</p>';
+        $message = '<p>' . __('Elementor News Ticker not working because you need to install the Elemenor plugin', 'news-ticker-widget-for-elementor') . '</p>';
+        $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $install_url, __('Install Elementor Now', 'news-ticker-widget-for-elementor')) . '</p>';
     }
     echo '<div class="error"><p>' . esc_html($message) . '</p></div>';
 }
@@ -86,8 +88,8 @@ function fd_nt_elementor_fail_load_out_of_date() {
     }
     $file_path = 'elementor/elementor.php';
     $upgrade_link = wp_nonce_url(self_admin_url('update.php?action=upgrade-plugin&plugin=') . $file_path, 'upgrade-plugin_' . $file_path);
-    $message = '<p>' . __('Elementor News Ticker not working because you are using an old version of Elementor.', 'elementor-news-ticker') . '</p>';
-    $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $upgrade_link, __('Update Elementor Now', 'elementor-news-ticker')) . '</p>';
+    $message = '<p>' . __('Elementor News Ticker not working because you are using an old version of Elementor.', 'news-ticker-widget-for-elementor') . '</p>';
+    $message .= '<p>' . sprintf('<a href="%s" class="button-primary">%s</a>', $upgrade_link, __('Update Elementor Now', 'news-ticker-widget-for-elementor')) . '</p>';
     echo '<div class="error">' . esc_html($message) . '</div>';
 }
 if (!function_exists('_is_elementor_installed')) {
@@ -127,7 +129,9 @@ function nt_plugin_deactivate() {
 add_action( 'wp_ajax_user_dismiss_notice', 'user_dismiss_notice' );
 add_action( 'wp_ajax_nopriv_user_dismiss_notice', 'user_dismiss_notice' );
 function user_dismiss_notice() {
-	$week = date('d/m/Y', strtotime(' +7 day'));
+	// Use gmdate() instead of date() to avoid timezone issues
+    $week = gmdate( 'd/m/Y', strtotime( '+7 days', current_time( 'timestamp', true ) ) );
+	//$week = date('d/m/Y', strtotime(' +7 day'));
     update_option('week_notice_date', $week);
 	wp_die();
 }
@@ -148,7 +152,8 @@ function disable_notice() {
  */
 
 function nt_admin_reviews_notice() {
-	    $today = date('d/m/Y');
+	    //$today = date('d/m/Y');
+	    $today = gmdate( 'd/m/Y', current_time( 'timestamp', true ) );
         $week = get_option('week_notice_date');
 		$show_notice = get_option('show_notice');
 		if ( ! is_admin() ) {

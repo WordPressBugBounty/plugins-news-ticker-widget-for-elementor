@@ -6,7 +6,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		return 'elementor-news-ticker';
 	}
 	public function get_title() { 		//Function for get the name of the element.
-		return __( 'News Ticker', 'elementor-news-ticker' );
+		return __( 'News Ticker', 'news-ticker-widget-for-elementor' );
 	}	
 	public function get_icon() { 		//Function for get the icon of the element.
 		return ' eicon-form-vertical';
@@ -33,7 +33,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' => __( 'General Settings', 'elementor-news-ticker' ),
+				'label' => __( 'General Settings', 'news-ticker-widget-for-elementor' ),
 			]
 		);		
 		$post_types1 = $this->newticker_get_post_types();		
@@ -41,7 +41,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
             'post_type',
             [
-                'label' => __('Source', 'elementor-news-ticker'),
+                'label' => __('Source', 'news-ticker-widget-for-elementor'),
                 'type' => Controls_Manager::SELECT,
                 'options' => $post_types1,
                 'default' => key($post_types1),
@@ -75,27 +75,27 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'no_of_post',
 			[
-				'label' => __( 'Post Number', 'elementor-news-ticker' ),
+				'label' => __( 'Post Number', 'news-ticker-widget-for-elementor' ),
 				'type' => Controls_Manager::NUMBER,
-				'default' => __( '6', 'elementor-news-ticker' )
+				'default' => __( '6', 'news-ticker-widget-for-elementor' )
 			]
 		);
 		$this->add_control(
 			'label',
 			[
-				'label' => __( 'Show label', 'elementor-news-ticker' ),
+				'label' => __( 'Show label', 'news-ticker-widget-for-elementor' ),
 				'type' => Controls_Manager::SWITCHER,
-				'label_off' => __( 'Off', 'elementor-news-ticker' ),
-				'label_on' => __( 'On', 'elementor-news-ticker' ),
+				'label_off' => __( 'Off', 'news-ticker-widget-for-elementor' ),
+				'label_on' => __( 'On', 'news-ticker-widget-for-elementor' ),
 				'default' => 'yes',
 			]
 		);
 		$this->add_control(
 			'label_heading',			[
-				'label' => __( 'Label', 'elementor-news-ticker' ),
+				'label' => __( 'Label', 'news-ticker-widget-for-elementor' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => __( 'Latest News', 'elementor-news-ticker'),
-				'placeholder' => __( 'Latest News', 'elementor-news-ticker' ),
+				'default' => __( 'Latest News', 'news-ticker-widget-for-elementor'),
+				'placeholder' => __( 'Latest News', 'news-ticker-widget-for-elementor' ),
 				'condition' => [
 					'label' => 'yes',
 				],
@@ -104,7 +104,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		 $this->add_control(
             'label_icon',
 			[
-				'label' => __('Icon', 'elementor-news-ticker'),
+				'label' => __('Icon', 'news-ticker-widget-for-elementor'),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 				'default' => [
@@ -117,19 +117,19 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'sep_content',
 			[
-				'label' => __( 'Separator', 'elementor-news-ticker' ),
+				'label' => __( 'Separator', 'news-ticker-widget-for-elementor' ),
 			]
 		);
 		$this->add_control(
 			'sep_type',
 			[
-				'label' => __( 'Separator Type', 'elementor-news-ticker' ),
+				'label' => __( 'Separator Type', 'news-ticker-widget-for-elementor' ),
 				'type' => Controls_Manager::SELECT,
 				'options' => [
-					'icon' => __( 'Icon', 'elementor-news-ticker' ),
-					'text' => __( 'Text', 'elementor-news-ticker' ),
-					'fimage' => __( 'Feature Image', 'elementor-news-ticker' ),
-					'pdate' => __( 'Date', 'elementor-news-ticker' ),
+					'icon' => __( 'Icon', 'news-ticker-widget-for-elementor' ),
+					'text' => __( 'Text', 'news-ticker-widget-for-elementor' ),
+					'fimage' => __( 'Feature Image', 'news-ticker-widget-for-elementor' ),
+					'pdate' => __( 'Date', 'news-ticker-widget-for-elementor' ),
 					
 				],
 				'default' => 'icon',
@@ -138,7 +138,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(//Add control to select an icon for button1.
             'sep_icon',
 			[
-				'label' => __('Icon', 'elementor-news-ticker'),
+				'label' => __('Icon', 'news-ticker-widget-for-elementor'),
 				'type' => Controls_Manager::ICONS,
 				'fa4compatibility' => 'icon',
 				'default' => [
@@ -153,10 +153,10 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'sep_text',
 			[
-				'label' => __( 'Text', 'elementor-news-ticker' ),
+				'label' => __( 'Text', 'news-ticker-widget-for-elementor' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => __( '|', 'elementor-news-ticker'),
-				'placeholder' => __( 'Text', 'elementor-news-ticker' ),
+				'default' => __( '|', 'news-ticker-widget-for-elementor'),
+				'placeholder' => __( 'Text', 'news-ticker-widget-for-elementor' ),
 				'condition' => [
 					'sep_type' => 'text',
 				],
@@ -166,25 +166,25 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'animation_style',
 			[
-				'label' => __('Animation', 'elementor-news-ticker' ),
+				'label' => __('Animation', 'news-ticker-widget-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
         $this->add_control(
 			'animation_speed',
 			[
-				'label' => __( 'Animation Speed', 'elementor-news-ticker' ),
+				'label' => __( 'Animation Speed', 'news-ticker-widget-for-elementor' ),
 				'type' => Controls_Manager::NUMBER,
 				'dynamic' => [
 					'active' => true,
 				],
-				'default' => __( '50', 'elementor-news-ticker'),	
+				'default' => __( '50', 'news-ticker-widget-for-elementor'),	
 			]
 		);
 		  $this->add_control(
 			'nt_background_color',
 			[
-				'label' => __( 'Background Color', 'elementor-news-ticker' ),
+				'label' => __( 'Background Color', 'news-ticker-widget-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_ACCENT,
@@ -199,7 +199,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'label_style',
 			[
-				'label' => __( 'Label', 'elementor-news-ticker' ),
+				'label' => __( 'Label', 'news-ticker-widget-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'label' => 'yes',
@@ -209,7 +209,7 @@ class Elementor_NT_Widget extends Widget_Base {
         $this->add_control(
 			'label_icon_indent',
 			[
-				'label' => __( 'Icon Spacing', 'elementor-news-ticker' ),
+				'label' => __( 'Icon Spacing', 'news-ticker-widget-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
 				'range' => [
 					'px' => [
@@ -224,7 +224,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'label_color',
 			[
-				'label' => __( 'Label Color', 'elementor-news-ticker' ),
+				'label' => __( 'Label Color', 'news-ticker-widget-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_PRIMARY,
@@ -239,7 +239,7 @@ class Elementor_NT_Widget extends Widget_Base {
         $this->add_control(
 			'label_background_color',
 			[
-				'label' => __( 'Background Color', 'elementor-news-ticker' ),
+				'label' => __( 'Background Color', 'news-ticker-widget-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_ACCENT,
@@ -264,13 +264,13 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'title_style',
 			[
-				'label' => __( 'Title', 'elementor-news-ticker' ),
+				'label' => __( 'Title', 'news-ticker-widget-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
 		$this->add_responsive_control('title_padding',
                 [
-                    'label'         => esc_html__('Padding', 'elementor-news-ticker'),
+                    'label'         => esc_html__('Padding', 'news-ticker-widget-for-elementor'),
                     'type'          => Controls_Manager::DIMENSIONS,
                     'size_units'    => [ 'px', 'em', '%' ],
                     'default'       => [
@@ -289,7 +289,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'title_color',
 			[
-				'label' => __( 'Title Color', 'elementor-news-ticker' ),
+				'label' => __( 'Title Color', 'news-ticker-widget-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_PRIMARY,
@@ -315,7 +315,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'icon_style',
 			[
-				'label' => __( 'Icon Separator', 'elementor-news-ticker' ),
+				'label' => __( 'Icon Separator', 'news-ticker-widget-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'sep_type' => 'icon',
@@ -325,7 +325,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'icon_color',
 			[
-				'label' => __( 'Icon Color', 'elementor-news-ticker' ),
+				'label' => __( 'Icon Color', 'news-ticker-widget-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_PRIMARY,
@@ -339,8 +339,12 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'icon_size',
 			[
-				'label' => __( 'Icon Size', 'elementor-news-ticker' ),
+				'label' => __( 'Icon Size', 'news-ticker-widget-for-elementor' ),
 				'type' => Controls_Manager::SLIDER,
+				'default' => [
+					'size' => 14, // default size
+					'unit' => 'px',
+				],
 				'range' => [
 					'px' => [
 						'max' => 50,
@@ -355,7 +359,7 @@ class Elementor_NT_Widget extends Widget_Base {
         $this->start_controls_section(
 			'sep_text_style',
 			[
-				'label' => __( 'Text Separator', 'elementor-news-ticker' ),
+				'label' => __( 'Text Separator', 'news-ticker-widget-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'sep_type' => 'text',
@@ -365,7 +369,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'sep_text_color',
 			[
-				'label' => __( 'Text Color', 'elementor-news-ticker' ),
+				'label' => __( 'Text Color', 'news-ticker-widget-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_PRIMARY,
@@ -379,7 +383,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'sep_text_bg_color',
 			[
-				'label' => __( 'Background Color', 'elementor-news-ticker' ),
+				'label' => __( 'Background Color', 'news-ticker-widget-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_ACCENT,
@@ -405,7 +409,7 @@ class Elementor_NT_Widget extends Widget_Base {
         $this->start_controls_section(
 			'sep_date_style',
 			[
-				'label' => __( 'Date Separator', 'elementor-news-ticker' ),
+				'label' => __( 'Date Separator', 'news-ticker-widget-for-elementor' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'sep_type' => 'pdate',
@@ -415,7 +419,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'sep_date_color',
 			[
-				'label' => __( 'Color', 'elementor-news-ticker' ),
+				'label' => __( 'Color', 'news-ticker-widget-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_PRIMARY,
@@ -429,7 +433,7 @@ class Elementor_NT_Widget extends Widget_Base {
 		$this->add_control(
 			'sep_date_bg_color',
 			[
-				'label' => __( 'Background Color', 'elementor-news-ticker' ),
+				'label' => __( 'Background Color', 'news-ticker-widget-for-elementor' ),
 				'type' => Controls_Manager::COLOR,
 				'global' => [
 					'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Colors::COLOR_ACCENT,
@@ -460,50 +464,49 @@ class Elementor_NT_Widget extends Widget_Base {
 	 *
 	 * @access protected
 	 */
-	 public function newticker_get_query_args($settings = [])
-    {
-        $settings = wp_parse_args($settings, [
-            'post_type' => 'post',           
-            'orderby' => 'date',
-            'order' => 'desc',
-            'posts_per_page' => 6,
-            
-        ]);
+	 
+	public function newticker_get_query_args($settings = []) {
+		$settings = wp_parse_args($settings, [
+			'post_type'      => 'post',
+			'orderby'        => 'date',
+			'order'          => 'desc',
+			'posts_per_page' => 6,
+		]);
 
-        $args = [           
-            'ignore_sticky_posts' => 1,
-            'post_status' => 'publish',
-            'posts_per_page' => $settings['no_of_post'],
-            
-        ];
-       
-		$args['post_type'] = $settings['post_type'];
+		$args = [
+			'ignore_sticky_posts' => 1,
+			'post_status'         => 'publish',
+			'posts_per_page'      => $settings['no_of_post'],
+			'post_type'           => $settings['post_type'],
+		];
 
+		
 		if ($args['post_type'] !== 'page') {
-			$args['tax_query'] = [];
 			$taxonomies = get_object_taxonomies($settings['post_type'], 'objects');
+			$tax_query  = []; 
 
 			foreach ($taxonomies as $object) {
 				$setting_key = $object->name . '_ids';
 
 				if (!empty($settings[$setting_key])) {
-					$args['tax_query'][] = [
+					$tax_query[] = [
 						'taxonomy' => $object->name,
-						'field' => 'term_id',
-						'terms' => $settings[$setting_key],
+						'field'    => 'term_id',
+						'terms'    => $settings[$setting_key],
 					];
 				}
 			}
 
-			if (!empty($args['tax_query'])) {
-				$args['tax_query']['relation'] = 'AND';
+			if (!empty($tax_query)) {
+				if (count($tax_query) > 1) {
+					$tax_query['relation'] = 'AND';
+				}
+				$args['tax_query'] = $tax_query;// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query -- Needed to filter posts by selected taxonomies
 			}
 		}
-        
-        
 
-        return $args;
-    }
+		return $args;
+	}
 	protected function render() {		
 		$settings = $this->get_settings();		
 		global $post;       
