@@ -3,8 +3,8 @@
  * Plugin Name: News Ticker Widget for Elementor
  * Plugin URI: https://flickdevs.com/elementor/
  * description: It showcases your most recent posts in a ticker style.
- * Version: 1.3.6
- * Elementor tested up to: 3.32.2
+ * Version: 1.3.7
+ * Elementor tested up to: 3.33.4
  * Author: FlickDevs
  * Author URI: https://flickdevs.com
  * Text Domain: news-ticker-widget-for-elementor
@@ -28,10 +28,12 @@ add_action('wp_enqueue_scripts','ele_news_ticker_style' );
 //add_action('elementor/widgets/widgets_registered','add_elementor_nt_widget');
 add_action('elementor/widgets/register','add_elementor_nt_widget');
 
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 function add_elementor_nt_widget() {
     require_once ELMENTOR_NT_WIDGET_PATH.'elements/news-ticker-widget.php';
 }
 
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 function ele_news_ticker_style() {
     wp_enqueue_style('fd-nt-style', ELMENTOR_NT_WIDGET_URL.'assets/css/ele-news-ticker.css', array(), '1.0.0');
 	wp_enqueue_style('ticker-style', ELMENTOR_NT_WIDGET_URL.'assets/css/ticker.css', array(), '1.0.0');
@@ -93,6 +95,7 @@ function fd_nt_elementor_fail_load_out_of_date() {
     echo '<div class="error">' . esc_html($message) . '</div>';
 }
 if (!function_exists('_is_elementor_installed')) {
+	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
     function _is_elementor_installed() {
         $file_path = 'elementor/elementor.php';
         $installed_plugins = get_plugins();
@@ -108,6 +111,7 @@ register_activation_hook( __FILE__, 'nt_admin_notice_activation_hook' );
  * @since 1.1.0
  */
 
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 function nt_admin_notice_activation_hook() {
 	update_option( 'show_notice', 'show' );
 }
@@ -115,7 +119,7 @@ function nt_admin_notice_activation_hook() {
 add_action( 'admin_notices', 'nt_admin_reviews_notice' );
 
 
-
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 function nt_plugin_deactivate() {
 	delete_option( 'current_date' );
 	delete_option( 'week_notice_date' );
@@ -126,8 +130,11 @@ function nt_plugin_deactivate() {
  * Disable notice for 7 days
  */ 
 
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 add_action( 'wp_ajax_user_dismiss_notice', 'user_dismiss_notice' );
 add_action( 'wp_ajax_nopriv_user_dismiss_notice', 'user_dismiss_notice' );
+
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 function user_dismiss_notice() {
 	// Use gmdate() instead of date() to avoid timezone issues
     $week = gmdate( 'd/m/Y', strtotime( '+7 days', current_time( 'timestamp', true ) ) );
@@ -140,8 +147,12 @@ function user_dismiss_notice() {
  * Disable notice 
  */
 
+
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 add_action( 'wp_ajax_disable_notice', 'disable_notice' );
 add_action( 'wp_ajax_nopriv_disable_notice', 'disable_notice' );
+
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 function disable_notice() {
     update_option('show_notice','hide');
 	wp_die();
@@ -151,6 +162,7 @@ function disable_notice() {
  * @since 1.1.0
  */
 
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 function nt_admin_reviews_notice() {
 	    //$today = date('d/m/Y');
 	    $today = gmdate( 'd/m/Y', current_time( 'timestamp', true ) );
@@ -180,6 +192,7 @@ function nt_admin_reviews_notice() {
 		}
 }
 add_action('admin_head','save_nt_date');
+// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
 function save_nt_date(){
 	?>
 	<script type="text/javascript" >

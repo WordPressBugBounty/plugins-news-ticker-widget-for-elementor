@@ -2,9 +2,9 @@
 Contributors: flickdevs, shaikhaezaz80, jpkaushik
 Tags: marquee, News Headlines, news ticker, elementor news ticker, post ticker
 Requires at least: 5.9
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 1.3.6
+Stable tag: 1.3.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,9 @@ How to install the plugin and get it working.
 
 
 == Changelog ==
+
+= 1.3.7 =
+* Compatibility with latest Elementor plugin and latest WordPress
 
 = 1.3.6 =
 * Fixed security warnings
